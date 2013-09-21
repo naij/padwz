@@ -1,0 +1,45 @@
+<div class="admin-guide site-manage">
+    <div class="hd clearfix">
+        <h3 class="title"><a href="/admin">后台设置</a>&gt;<a href="/site_tag_manage">标签管理</a>&gt;“<%= list.tag%>”标签下的网址</h3>
+    </div>
+    <div class="bd">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="5">
+                        <a href="/site_add/<%= list._id %>" class="btn btn-size25">新增网址</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th width="120">图片</th>
+                    <th width="120">标题</th>
+                    <th>排序值</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(list.site.length == 0) { %>
+                    <tr>
+                        <td colspan="4" align="center">
+                            该标签下暂时没有网址
+                        </td>
+                    </tr>
+                <% }else { %>
+                    <% for (var i = 0, l = list.site.length; i < l; i++) { %>
+                    <tr>
+                        <td>
+                            <img src="<%= config.upyun_path %><%= list.site[i].img %>" alt="">
+                        </td>
+                        <td><%= list.site[i].title %></td>
+                        <td><%= list.site[i].order %></td>
+                        <td>
+                            <a href="/site_edit/<%= list._id %>/<%= list.site[i]._id %>" class="color-blue">编辑</a>
+                            <a href="/site_del/<%= list._id %>/<%= list.site[i]._id %>" class="color-blue">删除</a>
+                        </td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

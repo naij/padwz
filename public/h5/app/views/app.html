@@ -1,0 +1,28 @@
+<div class="app">
+    <ul class="nav">
+        <li class="active"><a href="">应用精选</a></li>
+        <li><a href="">限时免费</a></li>
+    </ul>
+
+    <div class="app-cnt">
+        <ul class="clearfix">
+            <% _.each(data.result,function(item){ %>
+            <li class="item" itemid="<%= item.id %>">
+                <div class="img">
+                    <img src="<%= item.img %>" alt="">
+                </div>
+                <ul class="attr">
+                    <li class="title"><%= item.title %></li>
+                    <li class="clearfix">
+                        <span class="size"><%= item.size %>MB</span>
+                        <span class="view">
+                            <i class="iconfont">&#266;</i><%= item.click %>
+                            <i class="iconfont">&#362;</i><%= item.like %>
+                        </span>
+                    </li>
+                </ul>
+            </li>
+            <% }) %>
+        </ul>
+    </div>
+</div>

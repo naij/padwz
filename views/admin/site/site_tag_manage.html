@@ -1,0 +1,41 @@
+<div class="admin-guide site-manage">
+    <div class="hd clearfix">
+        <h3 class="title"><a href="/admin">后台设置</a>&gt;标签管理</h3>
+    </div>
+    <div class="bd">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th colspan="4">
+                        <a href="/site_tag_add" class="btn btn-size25">新增标签</a>
+                    </th>
+                </tr>
+                <tr>
+                    <th width="120">标签名称</th>
+                    <th>标签排序</th>
+                    <th width="100">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% if(list.length == 0) { %>
+                    <tr>
+                        <td colspan="3" align="center">
+                            暂时没有标签
+                        </td>
+                    </tr>
+                <% }else { %>
+                    <% for (var i = 0, l = list.length; i < l; i++) { %>
+                    <tr>
+                        <td><a href="/site_manage/<%= list[i]._id %>"><%= list[i].tag %></a></td>
+                        <td><%= list[i].order %></td>
+                        <td>
+                            <a href="/site_tag_edit/<%= list[i]._id %>" class="color-blue">编辑</a>
+                            <a href="/site_tag_del/<%= list[i]._id %>" class="color-blue">删除</a>
+                        </td>
+                    </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
